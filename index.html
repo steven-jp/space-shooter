@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Space-Shooter</title>
+  </head>
+  <body>
+    <div class="game-container">
+      <canvas id="main-game" class="game" width="1000" height="400"></canvas>
+      <canvas id="game-background" class="game" width="1000" height="400">
+      </canvas>
+    </div>
+    <!-- <section class="game"> -->
+    <img id="rocket-ship" src="./images/rocket.png" alt="" />
+    <img id="astroid" src="./images/astroid.png" alt="" />
+
+    <!-- </section> -->
+    <button id="start-button">Start Game</button>
+    <div class="score">
+      <div class="player-score">Player Score</div>
+    </div>
+    <script src="./Rocket.js"></script>
+    <script src="./Bullet.js"></script>
+    <script src="./Astroid.js"></script>
+    <script src="./App.js"></script>
+  </body>
+</html>

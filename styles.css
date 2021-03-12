@@ -1,0 +1,39 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: rgb(142, 140, 140);
+}
+
+/* Lay background and game context on top of each other. */
+.game-container {
+  position: relative;
+}
+.game {
+  position: absolute;
+}
+#main-game {
+  z-index: 1;
+}
+#game-background {
+  background: repeating-linear-gradient(30deg, #19191a, #000000, #151728);
+  width: 1000px;
+  height: 400px;
+  background-size: 300% 300%;
+  animation: gradient 10s linear infinite;
+  z-index: 0;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
