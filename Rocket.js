@@ -1,7 +1,9 @@
+const ROCKET = new Image();
+ROCKET.src = "./images/rocket.png";
+
 class Rocket {
   constructor(x, y, velocity) {
     this.border = 10;
-    this.rocket = document.getElementById("rocket-ship");
     this.height = 50;
     this.width = 90;
     this.x = x;
@@ -85,6 +87,6 @@ class Rocket {
     ctx.beginPath();
     //update hit box to be smaller than image
     ctx.rect(this.x + 10, this.y + 10, this.width - 20, this.height - 20);
-    ctx.drawImage(this.rocket, this.x, this.y, this.width, this.height);
+    ctx.drawImage(ROCKET, this.x, this.y, this.width, this.height);
   }
 }

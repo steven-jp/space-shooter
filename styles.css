@@ -5,12 +5,46 @@
 
 body {
   background-color: rgb(142, 140, 140);
+  overflow: hidden;
+  display: inline-block;
 }
 
 /* Lay background and game context on top of each other. */
 .game-container {
   position: relative;
+  width: 1000px;
+  height: 400px;
 }
+
+#start-button {
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: rgb(52, 52, 92);
+  color: rgb(208, 208, 208);
+  height: 50px;
+  width: 100px;
+  border-radius: 10px;
+  border: thin;
+}
+
+.player-score {
+  position: absolute;
+  font-family: "DotGothic16", sans-serif;
+  z-index: 2;
+  top: 100%;
+  left: 10px;
+  transform: translateY(-110%);
+  color: rgb(208, 208, 208);
+  user-select: none;
+}
+
+.hidden {
+  display: none;
+}
+
 .game {
   position: absolute;
 }
@@ -19,8 +53,6 @@ body {
 }
 #game-background {
   background: repeating-linear-gradient(30deg, #19191a, #000000, #151728);
-  width: 1000px;
-  height: 400px;
   background-size: 300% 300%;
   animation: gradient 10s linear infinite;
   z-index: 0;

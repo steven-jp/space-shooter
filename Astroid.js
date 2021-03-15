@@ -1,17 +1,20 @@
+const ASTROID = new Image();
+ASTROID.src = "./images/astroid.png";
+
 class Astroid {
   constructor(x, y, radius, velocity) {
-    this.astroid = document.getElementById("astroid");
     this.color = "white";
     this.radius = radius;
     this.x = x;
     this.y = y;
     this.velocity = velocity;
+    this.counter = 0;
   }
 
   draw() {
     ctx.beginPath();
     ctx.drawImage(
-      this.astroid,
+      ASTROID,
       this.x,
       this.y,
       this.radius * 2.5,
@@ -25,6 +28,10 @@ class Astroid {
       Math.PI * 2,
       false,
     );
+
+    if (this.counter > 360) {
+      this.counter = 0;
+    }
     this.x = this.x + this.velocity.x;
     this.y = this.y + this.velocity.y;
   }

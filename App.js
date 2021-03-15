@@ -2,14 +2,26 @@ const canvas = document.getElementById("main-game");
 const ctx = canvas.getContext("2d");
 bgdCanvas = document.getElementById("game-background");
 const bgdCtx = bgdCanvas.getContext("2d");
+let startButton = document.getElementById("start-button");
+
+startButton.addEventListener("click", () => {
+  startButton.classList.add("hidden");
+  game();
+});
 
 /* --------START GAME-------- */
 function game() {
-  const ROCKET_SHIP = new Rocket(0, canvas.height / 2, 6);
-  document.getElementById("start-button").addEventListener("click", () => {
-    console.log("HEY");
-  });
+  let playerScore = document.querySelector(".player-score");
+  let score = 0;
 
+  if (playerScore === null) {
+    playerScore = document.createElement("div");
+    playerScore.className = "player-score";
+    canvas.parentElement.appendChild(playerScore);
+  }
+  playerScore.innerHTML = `Player Score: ${score}`;
+
+  const ROCKET_SHIP = new Rocket(0, canvas.height / 2, 6);
   //background image
   const bgdImage = new Image();
   bgdImage.src = "./images/space-background.png";
@@ -32,7 +44,6 @@ function game() {
       let rightX = canvas.width;
       let leftY = Math.random() * canvas.height;
       let leftX = 0;
-      console.log("a");
       const angle = Math.atan2(leftY - rightY, leftX - rightX);
       const speed = Math.random() * 3 + 1;
       const velocity = {
@@ -92,10 +103,10 @@ function game() {
       }
       // astroid hit rocket - game over
       if (collisionDetection(astroid, ROCKET_SHIP, 1)) {
+        resetGame(animationFrame);
         intervals.forEach((interval) => {
           clearInterval(interval);
         });
-        cancelAnimationFrame(animationFrame);
       }
     });
     bullets.forEach((bullet, index) => {
@@ -110,9 +121,19 @@ function game() {
         if (collisionDetection(astroid, bullet, 0)) {
           bullets.splice(index, 1);
           astroids.splice(astroidIndex, 1);
+          updateScore();
         }
       });
     });
+    function resetGame(animationFrame) {
+      cancelAnimationFrame(animationFrame);
+      startButton.classList.remove("hidden");
+    }
+
+    function updateScore() {
+      score++;
+      playerScore.innerHTML = `Player Score: ${score}`;
+    }
   }
   createAstroids();
   createBullets();
@@ -173,5 +194,3 @@ function collisionDetection(shape, shape2, type) {
   }
   return false;
 }
-
-game();

@@ -5,22 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap"
+      rel="stylesheet"
+    />
     <title>Space-Shooter</title>
   </head>
   <body>
     <div class="game-container">
       <canvas id="main-game" class="game" width="1000" height="400"></canvas>
-      <canvas id="game-background" class="game" width="1000" height="400">
-      </canvas>
-    </div>
-    <!-- <section class="game"> -->
-    <img id="rocket-ship" src="./images/rocket.png" alt="" />
-    <img id="astroid" src="./images/astroid.png" alt="" />
-
-    <!-- </section> -->
-    <button id="start-button">Start Game</button>
-    <div class="score">
-      <div class="player-score">Player Score</div>
+      <canvas
+        id="game-background"
+        class="game"
+        width="1000"
+        height="400"
+      ></canvas>
+      <button id="start-button">Start Game</button>
+      <!-- <div id="player-score" class="hidden">Player Score</div> -->
     </div>
     <script src="./Rocket.js"></script>
     <script src="./Bullet.js"></script>
